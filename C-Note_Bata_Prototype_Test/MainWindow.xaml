@@ -1,0 +1,58 @@
+﻿<Window x:Class="C_Note_Bata_Prototype_Test.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:C_Note_Bata_Prototype_Test"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800" Background="White">
+    <Grid>
+        <InkCanvas x:Name="ink"/>
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto"/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Border Background="LightCyan" Height="30">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="auto"/>
+                        <ColumnDefinition/>
+                        <ColumnDefinition Width="auto"/>
+                    </Grid.ColumnDefinitions>
+                    <StackPanel Orientation="Horizontal">
+                        <Button Content="戻る"/>
+                        <TextBlock Text="ファイル名"/>
+                    </StackPanel>
+                    <Menu Grid.Column="2" IsMainMenu="True">
+                        <MenuItem Header=" : ">
+                            <MenuItem Header="Sub"/>
+                        </MenuItem>
+                    </Menu>
+                </Grid>
+            </Border>
+            <Canvas Grid.Row="1" IsHitTestVisible="False">
+                
+            </Canvas>
+            <StackPanel Grid.Row="1" HorizontalAlignment="Left" VerticalAlignment="Center">
+                <StackPanel.Resources>
+                    <Style TargetType="Button">
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="Button">
+                                    <Grid>
+                                        <Ellipse Fill="LightCyan"/>
+                                        <ContentPresenter Content="{TemplateBinding Content}"/>
+                                    </Grid>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style>
+                </StackPanel.Resources>
+                <Button Name="er" Content="消" FontSize="50"
+                        MouseDown="er_MouseDown"
+                        MouseUp="er_MouseUp"/>
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Window>
